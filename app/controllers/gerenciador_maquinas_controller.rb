@@ -25,7 +25,7 @@ class GerenciadorMaquinasController < ApplicationController
   
     respond_to do |format|
       if @gerenciador_maquina.save
-        format.html { redirect_to @gerenciador_maquina, notice: "Gerenciador maquina was successfully created." }
+        format.html { redirect_to @gerenciador_maquina, notice: "Máquina criada com sucesso." }
         format.json { render :show, status: :created, location: @gerenciador_maquina }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class GerenciadorMaquinasController < ApplicationController
   def update
     respond_to do |format|
       if @gerenciador_maquina.update(gerenciador_maquina_params)
-        format.html { redirect_to @gerenciador_maquina, notice: "Gerenciador maquina was successfully updated." }
+        format.html { redirect_to @gerenciador_maquina, notice: "A máquina foi atualizado com sucesso." }
         format.json { render :show, status: :ok, location: @gerenciador_maquina }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -49,7 +49,7 @@ class GerenciadorMaquinasController < ApplicationController
   def before_destroy
     @gerenciador_maquina.ValidaMaquina.before_destroy
     return true if :created_at + 18.seconds > :created_at
-    errors.add :base, "O registro não pode ser excluído "
+    errors.add :base, "A máquina não pode ser excluído "
     false
     throw(:abort)
   end 
@@ -59,7 +59,7 @@ class GerenciadorMaquinasController < ApplicationController
     @gerenciador_maquina.destroy
     
       respond_to do |format|
-      format.html { redirect_to gerenciador_maquinas_url, notice: "Registro destruído com sucesso." }
+      format.html { redirect_to gerenciador_maquinas_url, notice: "Máquina destruída com sucesso." }
       format.json { head :no_content }
       end
     end
