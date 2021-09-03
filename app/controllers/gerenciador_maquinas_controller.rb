@@ -1,5 +1,5 @@
 class GerenciadorMaquinasController < ApplicationController
-  before_action :set_gerenciador_maquina, only: %i[ show edit update destroy  ]
+  before_action :set_gerenciador_maquina, only: %i[ show edit update destroy before_destroy  ]
 
   # GET /gerenciador_maquinas or /gerenciador_maquinas.json
   def index
@@ -48,7 +48,7 @@ class GerenciadorMaquinasController < ApplicationController
   end
   def before_destroy
     @gerenciador_maquina.ValidaMaquina.before_destroy
-    return true if :created_at + 18.seconds > :created_at
+    return true if :created_at + 1800.seconds > :created_at
     errors.add :base, "A máquina não pode ser excluído "
     false
     throw(:abort)
