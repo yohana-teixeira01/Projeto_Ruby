@@ -20,7 +20,7 @@
         <td><%= gerenciador_maquina.broken %></td>
         <td><%= link_to 'Show', gerenciador_maquina %></td>
         <td><%= link_to 'Edit', edit_gerenciador_maquina_path(gerenciador_maquina) %></td>
-        <td><%= link_to 'Destroy', gerenciador_maquina, method: :delete, data: { confirm: 'Tem certeza que quer excluir?' } %></td>
+        <td><%= link_to 'Destroy' , gerenciador_maquina, method: :delete, data: { confirm: 'Tem certeza que quer excluir?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Gerenciador Maquina', new_gerenciador_maquina_path %>
+<%= link_to 'Nova Máquina', new_gerenciador_maquina_path %>

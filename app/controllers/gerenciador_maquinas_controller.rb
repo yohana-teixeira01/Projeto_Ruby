@@ -1,5 +1,5 @@
 class GerenciadorMaquinasController < ApplicationController
-  before_action :set_gerenciador_maquina, only: %i[ show edit update destroy ]
+  before_action :set_gerenciador_maquina, only: %i[ show edit update destroy  ]
 
   # GET /gerenciador_maquinas or /gerenciador_maquinas.json
   def index
@@ -22,7 +22,7 @@ class GerenciadorMaquinasController < ApplicationController
   # POST /gerenciador_maquinas or /gerenciador_maquinas.json
   def create
     @gerenciador_maquina = GerenciadorMaquina.new(gerenciador_maquina_params)
-
+  
     respond_to do |format|
       if @gerenciador_maquina.save
         format.html { redirect_to @gerenciador_maquina, notice: "Gerenciador maquina was successfully created." }
@@ -47,8 +47,8 @@ class GerenciadorMaquinasController < ApplicationController
     end
   end
   def before_destroy
-    @gerenciador_maquina.before_destroy
-    return true if :created_at + 1800.seconds > :created_at
+    @gerenciador_maquina.ValidaMaquina.before_destroy
+    return true if :created_at + 18.seconds > :created_at
     errors.add :base, "O registro não pode ser excluído "
     false
     throw(:abort)
@@ -59,7 +59,7 @@ class GerenciadorMaquinasController < ApplicationController
     @gerenciador_maquina.destroy
     
       respond_to do |format|
-      format.html { redirect_to gerenciador_maquinas_url, notice: "Gerenciador maquina was successfully destroyed." }
+      format.html { redirect_to gerenciador_maquinas_url, notice: "Registro destruído com sucesso." }
       format.json { head :no_content }
       end
     end
