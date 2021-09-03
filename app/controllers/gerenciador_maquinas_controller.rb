@@ -46,7 +46,13 @@ class GerenciadorMaquinasController < ApplicationController
       end
     end
   end
-  
+  def before_destroy
+    @gerenciador_maquina.before_destroy
+    return true if :created_at + 1800.seconds > :created_at
+    errors.add :base, "O registro não pode ser excluído "
+    false
+    throw(:abort)
+  end 
 
   # DELETE /gerenciador_maquinas/1 or /gerenciador_maquinas/1.json
   def destroy
