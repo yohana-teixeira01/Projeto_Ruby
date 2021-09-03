@@ -51,15 +51,13 @@ class GerenciadorMaquinasController < ApplicationController
   # DELETE /gerenciador_maquinas/1 or /gerenciador_maquinas/1.json
   def destroy
     @gerenciador_maquina.destroy
-    def before_destroy
-      @gerenciador_maquina.before_destroy
-      return true if created_at + 30.seconds < created_at 
+    
       respond_to do |format|
       format.html { redirect_to gerenciador_maquinas_url, notice: "Gerenciador maquina was successfully destroyed." }
       format.json { head :no_content }
       end
     end
-  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
