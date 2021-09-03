@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Gerenciador de Máquinas</h1>
+
+<table>
+  <thead>
+    <tr>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gerenciador_maquinas.each do |gerenciador_maquina| %>
+      <tr>
+        <td><%= gerenciador_maquina.machine_type %></td>
+        <td><%= gerenciador_maquina.name %></td>
+        <td><%= gerenciador_maquina.description %></td>
+        <td><%= gerenciador_maquina.month %></td>
+        <td><%= gerenciador_maquina.purchace_date %></td>
+        <td><%= gerenciador_maquina.broken %></td>
+        <td><%= link_to 'Show', gerenciador_maquina %></td>
+        <td><%= link_to 'Edit', edit_gerenciador_maquina_path(gerenciador_maquina) %></td>
+        <td><%= link_to 'Destroy', gerenciador_maquina, method: :delete, data: { confirm: 'Tem certeza que quer excluir?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gerenciador Maquina', new_gerenciador_maquina_path %>

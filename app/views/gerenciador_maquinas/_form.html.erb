@@ -1,0 +1,47 @@
+<%= form_with(model: gerenciador_maquina) do |form| %>
+  <% if gerenciador_maquina.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(gerenciador_maquina.errors.count, "error") %> prohibited this gerenciador_maquina from being saved:</h2>
+
+      <ul>
+        <% gerenciador_maquina.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :machine_type %>
+    <%= form.text_field :machine_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :month %>
+    <%= form.number_field :month %>
+  </div>
+
+  <div class="field">
+    <%= form.label :purchace_date %>
+    <%= form.date_select :purchace_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :broken %>
+    <%= form.check_box :broken %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

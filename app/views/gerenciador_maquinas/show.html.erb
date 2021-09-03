@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Machine type:</strong>
+  <%= @gerenciador_maquina.machine_type %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @gerenciador_maquina.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @gerenciador_maquina.description %>
+</p>
+
+<p>
+  <strong>Month:</strong>
+  <%= @gerenciador_maquina.month %>
+</p>
+
+<p>
+  <strong>Purchace date:</strong>
+  <%= @gerenciador_maquina.purchace_date %>
+</p>
+
+<p>
+  <strong>Broken:</strong>
+  <%= @gerenciador_maquina.broken %>
+</p>
+
+<%= link_to 'Edit', edit_gerenciador_maquina_path(@gerenciador_maquina) %> |
+<%= link_to 'Back', gerenciador_maquinas_path %>
